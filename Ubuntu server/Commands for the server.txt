@@ -1,0 +1,60 @@
+В командной строке перешел в режим суперпользователь с помощью команды
+sudo su
+1 - Создаем два файла с помощью cat и сразу заполняем файл:
+
+cat >> Pets
+Dogs
+Cats
+Р�Hamsters
+cat >> Pack_animals
+РHorses
+Сф�Camels
+Donkeys
+
+2 - Объединяем
+cat Pack_animals Pets > allAnimals
+
+3 - Переименоваем
+mv allAnimals 'Human Friends.txt'
+Вывод после команды ls:
+'Human Friends.txt'   Pack_animals   Pets
+
+
+Работа с директориями в Linux
+
+1 - Создаем новую директорию
+mkdir newfolder
+Перемещаем файл
+mv 'Human Friends.txt' newfolder/
+
+
+MYSQL
+
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+dpkg -i mysql-apt-config_0.8.28-1_all.deb
+apt-get update
+apt-get install mysql-server
+
+Результат команды systemctl status mysql:
+mysql.service - MySQL Community Server
+     Loaded: loaded (/usr/lib/systemd/system/mysql.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-09-10 12:21:57 MSK; 31min ago
+   Main PID: 1597 (mysqld)
+     Status: "Server is operational"
+      Tasks: 37 (limit: 4614)
+     Memory: 423.2M (peak: 435.8M)
+        CPU: 37.291s
+     CGroup: /system.slice/mysql.service
+             └─1597 /usr/sbin/mysqld
+
+сен 10 12:21:54 gb systemd[1]: Starting mysql.service - MySQL Community Server...
+сен 10 12:21:57 gb systemd[1]: Started mysql.service - MySQL Community Server.
+
+Управление deb-пакетами
+Установка и удаление
+http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/mc_4.8.29-2_amd64.deb
+dpkg -i mc_4.8.24-2ubuntu1_amd64.deb
+apt install -f
+mc
+sudo dpkg -r mc
+

@@ -105,6 +105,3 @@ ID	Name	Type	BirthDate	Commands
 
 #   A n i m a l s
 
-#   A n i m a l s 
- 
- 
