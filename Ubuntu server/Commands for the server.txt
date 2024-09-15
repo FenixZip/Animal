@@ -5,10 +5,10 @@ sudo su
 cat >> Pets
 Dogs
 Cats
-Р�Hamsters
+Hamsters
 cat >> Pack_animals
-РHorses
-Сф�Camels
+Horses
+Camels
 Donkeys
 
 2 - Объединяем

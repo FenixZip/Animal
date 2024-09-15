@@ -1,0 +1,103 @@
+
+CREATE TABLE IF NOT EXISTS 'Pets' (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      Name VARCHAR(50) NOT NULL,
+      Type VARCHAR(50) NOT NULL,
+      BirthDate DATE NOT NULL,
+      Commands VARCHAR(155) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS 'PackAnimals' (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     Name VARCHAR(50) NOT NULL,
+     Type VARCHAR(50) NOT NULL,
+     BirthDate DATE NOT NULL,
+     Commands VARCHAR(155) NOT NULL
+);
+
+INSERT INTO 'Pets' (Name, Type, BirthDate, Commands)
+VALUES
+    ('Fido',	'Dog',	'2020-01-01',	'Sit, Stay, Fetch'),
+    ('Whiskers',	'Cat',	'2019-05-15',	'Sit, Pounce'),
+    ('Hammy',	'Hamster',	'2021-03-10',	'Roll, Hide'),
+    ('Buddy',	'Dog',	'2018-12-10',	'Sit, Paw, Bark'),
+    ('Smudge',	'Cat',	'2020-02-20',	'Sit, Pounce, Scratch'),
+    ('Peanut',	'Hamster',	'2021-08-01',	'Roll, Spin'),
+    ('Socks',    'Dog',    '2020-06-15',    'Sit, Stay, Fetch'),
+    ('Rex',    'Cat',    '2020-09-10',    'Sit, Pounce'),
+    ('Spot',    'Hamster',    '2021-04-10',    'Roll, Hide'),
+    ('Rover',    'Dog',    '2019-11-15',    'Sit, Paw, Bark'),
+    ('Max',    'Cat',    '2020-10-20',    'Sit, Pounce'),
+    ('Daisy',    'Cat',    '2020-11-10',    'Sit, Pounce, Scratch'),
+    ('Oliver',    'Dog',    '2020-03-05',    'Sit, Stay, Fetch'),
+    ('Rufus',    'Dog',    '2020-07-15',    'Sit, Stay, Fetch'),
+    ('Buddy',    'Dog',    '2020-06-15',    'Sit, Paw, Bark');
+
+
+INSERT INTO 'PackAnimals' (Name, Type, BirthDate, Commands)
+VALUES
+    ('Thunder', 'Horse', '2015-07-21', 'Trot, Canter, Gallop'),
+    ('Sandy',	'Camel', '2016-11-03', 'Walk, Carry Load'),
+    ('Eeyore',	'Donkey', '2017-09-18', 'Walk, Carry Load, Bray'),
+    ('Storm',	'Horse', '2014-05-05', 'Trot, Canter'),
+    ('Dune',	'Camel', '2018-12-12', 'Walk, Sit'),
+    ('Burro',	'Donkey', '2019-01-23', 'Walk, Bray, Kick'),
+    ('Blaze',	'Horse', '2016-02-29', 'Trot, Jump, Gallop'),
+    ('Sahara',	'Camel', '2015-08-14', 'Walk, Run'),
+    ('Frodo',    'Donkey', '2017-03-02', 'Walk, Bray, Jump'),
+    ('Smaug',    'Horse', '2014-09-07', 'Trot, Gallop'),
+    ('Gollum',    'Camel', '2018-06-10', 'Walk, Sit'),
+    ('Gandalf',    'Donkey', '2019-04-25', 'Walk, Bray, Kick'),
+    ('Saruman',    'Horse', '2016-03-30', 'Trot, Jump, Gallop'),
+    ('Legolas',    'Camel', '2015-10-15', 'Walk, Run'),
+    ('Aragorn',    'Donkey', '2017-06-05', 'Walk, Bray, Kick');
+
+
+-- Удаляем записи о верблюдах
+DELETE FROM PackAnimals
+WHERE Type = 'Camel';
+
+-- Проверяем есть ли в таблицы верблюды
+SELECT * FROM 'PackAnimals'
+WHERE Type = 'Camel';
+-- В таблице только лошида и ослы
+SELECT * FROM 'PackAnimals';
+
+
+-- Новая таблица с жэивотнами в возрасте от 1 до 3 лет
+CREATE TABLE IF NOT EXISTS 'YoungAnimals' (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(50) NOT NULL,
+    Type VARCHAR(50) NOT NULL,
+    BirthDate DATE NOT NULL,
+    Commands VARCHAR(155) NOT NULL,
+    AgeInMonths INT
+);
+
+-- Вставка данных о животных в возрасте от 1 до 3 лет
+INSERT INTO 'YoungAnimals' (Name, Type, BirthDate, Commands, AgeInMonths)
+SELECT Name, Type, BirthDate, Commands, TIMESTAMPDIFF(MONTH, BirthDate, CURDATE())
+    AS  AgeInMonths FROM Pets
+WHERE TIMESTAMPDIFF(YEAR, BirthDate, CURDATE()) BETWEEN 1 And 3
+UNION
+SELECT Name, Type, BirthDate, Commands, TIMESTAMPDIFF(MONTH, BirthDate, CURDATE())
+    AS AgeInMonths FROM PackAnimals
+WHERE TIMESTAMPDIFF(YEAR, birthDate, CURDATE()) BETWEEN 1 And 3;
+
+
+-- Общая таблица
+CREATE TABLE IF NOT EXISTS 'allAnimals' (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR(50) NOT NULL,
+    Type VARCHAR(50) NOT NULL,
+    BirthDate DATE NOT NULL,
+    Commands VARCHAR(155) NOT NULL,
+    Origintable VARCHAR(50)
+);
+
+INSERT INTO 'allAnimals' (Name, Type, BirthDate, Commands, Origintable)
+SELECT Name, Type, BirthDate, Commands, 'Pets' AS Origintable FROM Pets
+UNION
+SELECT Name, Type, BirthDate, Commands, 'PackAnimals' AS Origintable FROM PackAnimals;
+
+SELECT * FROM allAnimals;

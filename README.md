@@ -51,27 +51,40 @@
 
 Пример заполненной таблицы для теста:
 Лист "Pets"
-ID	Name	Type	BirthDate	Commands
-1	Fido	Dog	2020-01-01	Sit, Stay, Fetch
-2	Whiskers	Cat	2019-05-15	Sit, Pounce
-3	Hammy	Hamster	2021-03-10	Roll, Hide
-4	Buddy	Dog	2018-12-10	Sit, Paw, Bark
-5	Smudge	Cat	2020-02-20	Sit, Pounce, Scratch
-6	Peanut	Hamster	2021-08-01	Roll, Spin
-7	Bella	Dog	2019-11-11	Sit, Stay, Roll
-8	Oliver	Cat	2020-06-30	Meow, Scratch, Jump
+'Name	Type	BirthDate	Commands
+('Fido',	'Dog',	2020-01-01,	'Sit, Stay, Fetch'),
+('Whiskers',	'Cat',	2019-05-15,	'Sit, Pounce'),
+('Hammy',	'Hamster',	2021-03-10,	'Roll, Hide'),
+('Buddy',	'Dog',	2018-12-10,	'Sit, Paw, Bark'),
+('Smudge',	'Cat',	2020-02-20,	'Sit, Pounce, Scratch'),
+('Peanut',	'Hamster',	2021-08-01,	'Roll, Spin'),
+('Socks',    'Dog',    2020-06-15,    'Sit, Stay, Fetch'),
+('Rex',    'Cat',    2020-09-10,    'Sit, Pounce'),
+('Spot',    'Hamster',    2021-04-10,    'Roll, Hide'),
+('Rover',    'Dog',    2019-11-15,    'Sit, Paw, Bark'),
+('Max',    'Cat',    2020-10-20,    'Sit, Pounce'),
+('Daisy',    'Cat',    2020-11-10,    'Sit, Pounce, Scratch'),
+('Oliver',    'Dog',    2020-03-05,    'Sit, Stay, Fetch'),
+('Rufus',    'Dog',    2020-07-15,    'Sit, Stay, Fetch'),
+('Buddy',    'Dog',    2020-06-15,    'Sit, Paw, Bark');
 
 Лист "PackAnimals"
-ID	Name	Type	BirthDate	Commands
-1	Thunder	Horse	2015-07-21	Trot, Canter, Gallop
-2	Sandy	Camel	2016-11-03	Walk, Carry Load
-3	Eeyore	Donkey	2017-09-18	Walk, Carry Load, Bray
-4	Storm	Horse	2014-05-05	Trot, Canter
-5	Dune	Camel	2018-12-12	Walk, Sit
-6	Burro	Donkey	2019-01-23	Walk, Bray, Kick
-7	Blaze	Horse	2016-02-29	Trot, Jump, Gallop
-8	Sahara	Camel	2015-08-14	Walk, Run
-
+Name	Type	BirthDate	Commands
+('Thunder', 'Horse', 2015-07-21, 'Trot, Canter, Gallop'),
+('Sandy',	'Camel', 2016-11-03, 'Walk, Carry Load'),
+('Eeyore',	'Donkey', 2017-09-18, 'Walk, Carry Load, Bray'),
+('Storm',	'Horse', 2014-05-05, 'Trot, Canter'),
+('Dune',	'Camel', 2018-12-12, 'Walk, Sit'),
+('Burro',	'Donkey', 2019-01-23, 'Walk, Bray, Kick'),
+('Blaze',	'Horse', 2016-02-29, 'Trot, Jump, Gallop'),
+('Sahara',	'Camel', 2015-08-14, 'Walk, Run'),
+('Frodo',    'Donkey', 2017-03-02, 'Walk, Bray, Jump'),
+('Smaug',    'Horse', 2014-09-07, 'Trot, Gallop'),
+('Gollum',    'Camel', 2018-06-10, 'Walk, Sit'),
+('Gandalf',    'Donkey', 2019-04-25, 'Walk, Bray, Kick'),
+('Saruman',    'Horse', 2016-03-30, 'Trot, Jump, Gallop'),
+('Legolas',    'Camel', 2015-10-15, 'Walk, Run'),
+('Aragorn',    'Donkey', 2017-06-05, 'Walk, Bray, Kick');
 
 
 
